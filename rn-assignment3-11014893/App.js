@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import { StyleSheet, Text, View, FlatList, ScrollView } from "react-native";
 
 export default function App() {
   const categories = [
@@ -7,32 +7,67 @@ export default function App() {
     { key: "Category 2" },
     { key: "Category 3" },
     { key: "Category 4" },
+    { key: "Category 5" },
+    { key: "Category 6" },
+    { key: "Category 7" },
+    { key: "Category 8" },
+  ];
+
+  const categoriess = [
+    { key: "Category 1" },
+    { key: "Category 2" },
+    { key: "Category 3" },
+    { key: "Category 4" },
+    { key: "Category 5" },
+    { key: "Category 6" },
+    { key: "Category 7" },
+    { key: "Category 8" },
+    { key: "Category 9" },
+    { key: "Category 10" },
+    { key: "Category 11" },
+    { key: "Category 12" },
+    { key: "Category 13" },
+    { key: "Category 14" },
+    { key: "Category 15" },
   ];
 
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <View style={styles.container1}>
-        <Text style={styles.text1}>Hello , Devs</Text>
-        <Text style={styles.text2}>14 Tasks today</Text>
-        <View style={styles.round}></View>
+    <ScrollView>
+      <View style={styles.container}>
+        <StatusBar style="auto" />
+        <View style={styles.container1}>
+          <Text style={styles.text1}>Hello , Devs</Text>
+          <Text style={styles.text2}>14 Tasks today</Text>
+          <View style={styles.round}></View>
+        </View>
+        <View style={styles.container2}>
+          <View style={styles.rectangle1}></View>
+          <View style={styles.rectangle2}></View>
+        </View>
+        <Text style={styles.textt}>Categories</Text>
+        <FlatList
+          data={categories}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <View style={styles.category}>
+              <Text>{item.key}</Text>
+            </View>
+          )}
+        />
+        <Text style={styles.texttt}>Ongoing Task</Text>
+        <FlatList
+          data={categoriess}
+          vertical={true}
+          showsVerticalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <View style={styles.categoryy}>
+              <Text>{item.key}</Text>
+            </View>
+          )}
+        />
       </View>
-      <View style={styles.container2}>
-        <View style={styles.rectangle1}></View>
-        <View style={styles.rectangle2}></View>
-      </View>
-      <Text style={styles.textt}>Categories</Text>
-      <FlatList
-        data={categories}
-        horizontal={true}
-        renderItem={({ item }) => (
-          <View style={styles.category}>
-            <Text>{item.key}</Text>
-          </View>
-        )}
-      />
-      <Text style={styles.texttt}>Ongoing Task</Text>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -108,13 +143,26 @@ const styles = StyleSheet.create({
     backgroundColor: "pink",
     width: 220,
     height: 250,
-    marginBottom: 10,
+    marginBottom: "",
     justifyContent: "center",
     alignItems: "center",
     marginLeft: 20,
     borderRadius: 20,
   },
   texttt: {
-
+    fontSize: 30,
+    marginTop: 40,
+    marginBottom: "",
+    marginLeft: -190,
+  },
+  categoryy: {
+    backgroundColor: "pink",
+    width: 390,
+    height: 180,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+    borderRadius: 20,
   },
 });
+
