@@ -1,7 +1,14 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 
 export default function App() {
+  const categories = [
+    { key: "Category 1" },
+    { key: "Category 2" },
+    { key: "Category 3" },
+    { key: "Category 4" },
+  ];
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -15,6 +22,16 @@ export default function App() {
         <View style={styles.rectangle2}></View>
       </View>
       <Text style={styles.textt}>Categories</Text>
+      <FlatList
+        data={categories}
+        horizontal={true}
+        renderItem={({ item }) => (
+          <View style={styles.category}>
+            <Text>{item.key}</Text>
+          </View>
+        )}
+      />
+      <Text style={styles.texttt}>Ongoing Task</Text>
     </View>
   );
 }
@@ -28,15 +45,13 @@ const styles = StyleSheet.create({
   },
   container1: {
     flexDirection: "row",
-    height: "",
-    width: "90%",
+    width: "92%",
     backgroundColor: "pink",
     paddingHorizontal: 2,
-    marginTop: 40,
-    marginBottom: 20,
+    marginTop: 100,
+    marginBottom: 30,
     alignItems: "center",
     justifyContent: "space-between",
-    flexWrap: "",
   },
   text1: {
     fontSize: 40,
@@ -49,7 +64,7 @@ const styles = StyleSheet.create({
     fontWeight: "normal",
     textAlign: "left",
     marginTop: 20,
-    marginLeft: -330,
+    marginLeft: -335,
   },
   round: {
     backgroundColor: "white",
@@ -61,32 +76,45 @@ const styles = StyleSheet.create({
   },
   container2: {
     flexDirection: "row",
-    height: "10%",
-    width: "90%",
-    marginBottom: "",
-    backgroundColor: "yellow",
+    width: "92%",
+    marginBottom: 20,
+    backgroundColor: "pink",
     alignItems: "center",
     justifyContent: "space-between",
-    flexWrap: "",
   },
   rectangle1: {
-    backgroundColor: "green",
+    backgroundColor: "white",
+    opacity: 0.4,
     width: 280,
     height: 70,
     borderRadius: 20,
-    marginLeft: 2,
+    marginLeft: "",
   },
   rectangle2: {
-    backgroundColor: "green",
+    backgroundColor: "white",
+    opacity: 0.4,
     width: 70,
     height: 70,
     borderRadius: 25,
     marginRight: 2,
   },
   textt: {
-    fontSize: "30px",
-    marginTop: 50,
-    marginBottom: 520,
-    marginLeft:-225,
+    fontSize: 30,
+    marginTop: 40,
+    marginBottom: 20,
+    marginLeft: -225,
+  },
+  category: {
+    backgroundColor: "pink",
+    width: 220,
+    height: 250,
+    marginBottom: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 20,
+    borderRadius: 20,
+  },
+  texttt: {
+
   },
 });
