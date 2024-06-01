@@ -74,11 +74,9 @@ export default function App() {
                 flexDirection: "row",
                 alignItems: "center",
                 backgroundColor: "white",
-                borderWidth: 1,
-                borderColor: "white",
                 padding: 5,
                 width: "70%",
-                height: "100%",
+                height: "80%",
                 borderRadius: 10,
               }}
             >
@@ -184,7 +182,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "92%",
     paddingHorizontal: 2,
-    marginTop: 100,
+    marginTop: 20,
     marginBottom: 30,
     alignItems: "center",
     justifyContent: "space-between",
@@ -208,6 +206,8 @@ const styles = StyleSheet.create({
     height: 70,
     borderRadius: 40,
     marginLeft: 100,
+    justifyContent: "center",
+    alignItems: "center",
   },
   container2: {
     flexDirection: "row",
@@ -229,16 +229,16 @@ const styles = StyleSheet.create({
   },
   rectangle2: {
     backgroundColor: "#DC4D01",
-    width: 70,
-    height: 70,
-    borderRadius: 25,
+    width: 60,
+    height: 60,
+    borderRadius: 20,
     marginRight: 2,
     alignItems: "center",
     justifyContent: "center",
   },
   textt: {
     fontSize: 30,
-    marginTop: 40,
+    marginTop: 20,
     marginBottom: 20,
     marginLeft: -225,
   },
@@ -269,8 +269,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   image1: {
-    width: "100%",
-    height: "100%",
+    width: "80%",
+    height: "80%",
   },
   image2: {
     width: 20,
