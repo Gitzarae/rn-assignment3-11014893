@@ -1,77 +1,179 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, FlatList, ScrollView } from "react-native";
+import { StyleSheet, Text, View, FlatList, ScrollView, Image, TextInput, SafeAreaView } from "react-native";
 
 export default function App() {
   const categories = [
-    { key: "Category 1" },
-    { key: "Category 2" },
-    { key: "Category 3" },
-    { key: "Category 4" },
-    { key: "Category 5" },
-    { key: "Category 6" },
-    { key: "Category 7" },
-    { key: "Category 8" },
+    {
+      key: "Exercise",
+      image: require("./assets/young woman working online.png"),
+    },
+    {
+      key: "Study",
+      image: require("./assets/young woman working at desk.png"),
+    },
+    { key: "Pray", image: require("./assets/young woman working at desk.png") },
+    {
+      key: "Make Du'a",
+      image: require("./assets/young woman working at desk.png"),
+    },
+    {
+      key: "Give Zakat",
+      image: require("./assets/young woman working at desk.png"),
+    },
+    {
+      key: "Visit mosque",
+      image: require("./assets/young woman working at desk.png"),
+    },
+    {
+      key: "Qu'ran recitation",
+      image: require("./assets/young woman working at desk.png"),
+    },
+    {
+      key: "Sleep",
+      image: require("./assets/young woman working at desk.png"),
+    },
   ];
 
   const categoriess = [
-    { key: "Category 1" },
-    { key: "Category 2" },
-    { key: "Category 3" },
-    { key: "Category 4" },
-    { key: "Category 5" },
-    { key: "Category 6" },
-    { key: "Category 7" },
-    { key: "Category 8" },
-    { key: "Category 9" },
-    { key: "Category 10" },
-    { key: "Category 11" },
-    { key: "Category 12" },
-    { key: "Category 13" },
-    { key: "Category 14" },
-    { key: "Category 15" },
+    { key: "Mobile App Development" },
+    { key: "Web Development" },
+    { key: "Push ups" },
+    { key: "Karting" },
+    { key: "Scneries" },
+    { key: "Conference" },
+    { key: "Shoplifting" },
+    { key: "Vacation" },
+    { key: "Hungout" },
+    { key: "Family-time" },
+    { key: "Self-reflection" },
+    { key: "Heavy studying" },
+    { key: "Assignments" },
+    { key: "Research" },
+    { key: "Vlogs" },
   ];
 
+
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        <View style={styles.container1}>
-          <Text style={styles.text1}>Hello , Devs</Text>
-          <Text style={styles.text2}>14 Tasks today</Text>
-          <View style={styles.round}></View>
-        </View>
-        <View style={styles.container2}>
-          <View style={styles.rectangle1}></View>
-          <View style={styles.rectangle2}></View>
-        </View>
-        <Text style={styles.textt}>Categories</Text>
-        <FlatList
-          data={categories}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <View style={styles.category}>
-              <Text>{item.key}</Text>
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView>
+        <View style={styles.container}>
+          <StatusBar style="auto" />
+          <View style={styles.container1}>
+            <Text style={styles.text1}>Hello , Devs</Text>
+            <Text style={styles.text2}>14 Tasks today</Text>
+            <View style={styles.round}>
+              <Image
+                style={styles.image1}
+                source={require("./assets/person.png")}
+              />
             </View>
-          )}
-        />
-        <Text style={styles.texttt}>Ongoing Task</Text>
-        <FlatList
-          data={categoriess}
-          vertical={true}
-          showsVerticalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <View style={styles.categoryy}>
-              <Text>{item.key}</Text>
+          </View>
+          <View style={styles.container2}>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                backgroundColor: "white",
+                borderWidth: 1,
+                borderColor: "white",
+                padding: 5,
+                width: "70%",
+                height: "100%",
+                borderRadius: 10,
+              }}
+            >
+              <Image
+                source={require("./assets/search.png")}
+                style={{
+                  width: 30,
+                  height: 30,
+                  marginRight: 10,
+                  marginLeft: 5,
+                }}
+              />
+              <TextInput
+                placeholder="Search"
+                style={{ flex: 1, height: "80%" }}
+              />
             </View>
-          )}
-        />
-      </View>
-    </ScrollView>
+            <View style={styles.rectangle2}>
+              <Image
+                style={styles.image3}
+                source={require("./assets/Vector.png")}
+              />
+            </View>
+          </View>
+          <Text style={styles.textt}>Categories</Text>
+          <FlatList
+            data={categories}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            renderItem={({ item }) => (
+              <View style={styles.category}>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontWeight: "normal",
+                    textAlign: "left",
+                    marginBottom: 5,
+                    marginLeft: 20,
+                  }}
+                >
+                  {item.key}
+                </Text>
+                <Text style={styles.additionalText}>12 Tasks</Text>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "white",
+                    borderWidth: 1,
+                    borderColor: "white",
+                    padding: 5,
+                    width: "80%",
+                    height: "60%",
+                    borderRadius: 10,
+                    marginLeft: 20,
+                  }}
+                >
+                  <Image source={item.image} style={styles.categoryImage} />
+                </View>
+              </View>
+            )}
+          />
+          <Text style={styles.texttt}>Ongoing Task</Text>
+          <FlatList
+            data={categoriess}
+            vertical={true}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) => (
+              <View style={styles.categoryy}>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontWeight: "normal",
+                    textAlign: "left",
+                    marginBottom: 50,
+                    marginLeft: 20,
+                  }}
+                >
+                  {item.key}
+                </Text>
+              </View>
+            )}
+          />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#F7F0E8",
+  },
   container: {
     flex: 1,
     backgroundColor: "#F7F0E8",
@@ -81,7 +183,6 @@ const styles = StyleSheet.create({
   container1: {
     flexDirection: "row",
     width: "92%",
-    backgroundColor: "pink",
     paddingHorizontal: 2,
     marginTop: 100,
     marginBottom: 30,
@@ -92,46 +193,48 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: "normal",
     textAlign: "left",
-    marginBottom: 50,
+    marginBottom: 20,
   },
   text2: {
     fontSize: 12,
     fontWeight: "normal",
     textAlign: "left",
-    marginTop: 20,
+    marginTop: 40,
     marginLeft: -335,
   },
   round: {
     backgroundColor: "white",
     width: 70,
     height: 70,
-    opacity: 0.4,
     borderRadius: 40,
     marginLeft: 100,
   },
   container2: {
     flexDirection: "row",
     width: "92%",
+    paddingHorizontal: 2,
     marginBottom: 20,
-    backgroundColor: "pink",
     alignItems: "center",
     justifyContent: "space-between",
   },
   rectangle1: {
     backgroundColor: "white",
-    opacity: 0.4,
     width: 280,
     height: 70,
     borderRadius: 20,
     marginLeft: "",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
   },
   rectangle2: {
-    backgroundColor: "white",
-    opacity: 0.4,
+    backgroundColor: "#DC4D01",
     width: 70,
     height: 70,
     borderRadius: 25,
     marginRight: 2,
+    alignItems: "center",
+    justifyContent: "center",
   },
   textt: {
     fontSize: 30,
@@ -140,12 +243,12 @@ const styles = StyleSheet.create({
     marginLeft: -225,
   },
   category: {
-    backgroundColor: "pink",
+    backgroundColor: "white",
     width: 220,
     height: 250,
     marginBottom: "",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "left",
     marginLeft: 20,
     borderRadius: 20,
   },
@@ -156,13 +259,39 @@ const styles = StyleSheet.create({
     marginLeft: -190,
   },
   categoryy: {
-    backgroundColor: "pink",
+    backgroundColor: "white",
     width: 390,
     height: 180,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "left",
     marginTop: 20,
     borderRadius: 20,
+    marginBottom: 20,
+  },
+  image1: {
+    width: "100%",
+    height: "100%",
+  },
+  image2: {
+    width: 20,
+    height: 20,
+    color: "black",
+  },
+  textttt: {
+    fontSize: 20,
+    fontColor: "black",
+    marginRight: 150,
+  },
+  image3: {
+    width: "70%",
+    height: "70%",
+  },
+  additionalText: {
+    fontSize: 15,
+    fontWeight: "normal",
+    textAlign: "left",
+    marginBottom: 2,
+    marginLeft: 20,
   },
 });
 
