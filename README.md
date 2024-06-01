@@ -18,4 +18,4 @@
 8.  SafeAreaView: Ensuring that content doesn’t overlap with the device’s status bar is crucial. The SafeAreaView component prevents UI elements from being obstructed by system components like battery and time indicators. It contributes to a polished user experience.
 
 ## Screenshot of the app:
-![Homepage screenshot](./assets/WhatsApp%20Image%202024-06-01%20at%2012.36.19_48faaabb.jpg)
+![Homepage screenshot](./assets/App.jpg)
